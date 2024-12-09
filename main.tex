@@ -14,18 +14,9 @@
 \tableofcontents
 \newpage
 
-\specialsection{Введение}
-
-\begin{enumerate}
-    \item \textit{Что такое основы симплекс метода?}
-    \item \textit{У него есть основы?}
-    \item \textit{Или это про основы ЛП.}
-    \item \textit{Ну про ЛП мы не будем слишком много рассказывать, потому что наверное все всё уже про него знают и мы просто дадим за 0 секунд математическое описание ЛП и начнем про то как это решать.}
-\end{enumerate}
-
 \section{Линейное программирование}
 
-Задача ЛП состоит в том, что необходимо максимизировать или минимизировать некоторый линейный функционал на многомерном пространстве при заданных линейных ограничениях.
+Задача линейного программирования (ЛП) состоит в том, что нам необходимо максимизировать или минимизировать некоторый линейный функционал на многомерном пространстве при заданных линейных ограничениях.
 
 \subsection{Линейный функционал}
 
@@ -45,11 +36,10 @@
 Никаких полей у нас не вводилось.
 
 Отображение называется линейным когда оно удовлетворяет двум свойствам линейности:
-
-\begin{gather}
-    f(a + b) = f(a) + f(b) \\
-    f(\lambda a) = \lambda f(a)
-\end{gather}
+\begin{align}
+    f(a + b) & = f(a) + f(b) \\
+    f(\lambda a) & = \lambda f(a)
+\end{align}
 
 \subsection{Геометрическое представление задачи ЛП}
 
@@ -68,12 +58,7 @@
 Гиперплоскость задается одним вектором и этим вектором будет вектор \(n = \frac c {|c|}\). Это вектор самого быстрого изменения целевой функции и называется градиентом.
 Еще для задания гиперплоскости нужна координата или же точка.
 
-\section{Математическое описание задачи ЛП}
-
-\subsection{Обозначения}
-
-На английском primal и dual.
-На русском будем говорить прямая и двойственная.
+\subsection{Обозначения для математического представления}
 
 \begin{itemize}
     \item Целевая функция (ЦФ) обозначается \(z\).
@@ -91,18 +76,16 @@
 
 Векторы у нас вертикальные, запись в строчку использует транспонирование.
 
-\subsection{Прямая задача}
+\subsection{Математическое описание задачи ЛП}
 
 Прямая задача максимизации в стандартной форме:
-
-\begin{equation}
-    \max z = \max c^Tx
+\begin{equation} \label{eq:primal_max}
+    \begin{aligned}
+        \max z & = \max c^Tx \\
+        Ax & \le b \\
+        x & \ge 0
+    \end{aligned}
 \end{equation}
-\begin{gather}
-    Ax \le b \\
-    x \ge 0
-\end{gather}
-
 % Еще в википедии есть что \(b \ge 0\), но такого больше нигде нет и непонятно зачем вообще это.
 
 % Можно писать еще так, но мы не будем:
@@ -113,200 +96,190 @@
 % \end{equation}
 
 У нас \(m\) ограничений и \(n\) переменных.
-\begin{gather}
-    x = (x_1, x_2, \ldots, x_n)^T \\
-    c = (c_1, c_2, \ldots, c_n)^T \\
-    b = (b_1, b_2, \ldots, b_m)^T \\
-    A =
-    \begin{pmatrix}
-        a_{11} & a_{12} & \ldots & a_{1n} \\
-        a_{21} & a_{22} & \ldots & a_{2n} \\
-        \vdots & \vdots & \ddots & \vdots \\
-        a_{m1} & a_{m2} & \ldots & a_{mn}
-    \end{pmatrix}
-    % = \begin{bmatrix}a_1 \\ a_2 \\ \vdots \\ a_n\end{bmatrix}
-    % = [a^1, a^2, \ldots, a^n]
-    = \{a_{ij}\}_{i,j = 1}^{m,n}
-\end{gather}
+\begin{equation}
+    \begin{gathered}
+        \begin{aligned}
+            x & = (x_1, x_2, \ldots, x_n)^T \\
+            c & = (c_1, c_2, \ldots, c_n)^T \\
+            b & = (b_1, b_2, \ldots, b_m)^T
+        \end{aligned} \\
+        A
+        = \{a_{ij}\}_{i,j = 1}^{m,n}
+        =
+        \begin{pmatrix}
+            a_{11} & a_{12} & \ldots & a_{1n} \\
+            a_{21} & a_{22} & \ldots & a_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{m1} & a_{m2} & \ldots & a_{mn}
+        \end{pmatrix}
+        % = \begin{bmatrix}a_1 \\ a_2 \\ \vdots \\ a_n\end{bmatrix}
+        % = [a^1, a^2, \ldots, a^n]
+    \end{gathered}
+\end{equation}
 
 Другая раскрытая запись задачи ЛП для того чтобы думать:
-\begin{gather}
-    \max z = \max (c_1x_1 + c_2x_2 + \ldots + c_nx_n) \\
-    \begin{pmatrix}
-        a_{11} & a_{12} & \ldots & a_{1n} \\
-        a_{21} & a_{22} & \ldots & a_{2n} \\
-        \vdots & \vdots & \ddots & \vdots \\
-        a_{m1} & a_{m2} & \ldots & a_{mn}
-    \end{pmatrix}
-    \begin{pmatrix}
-        x_1 \\ x_2 \\ \vdots \\ x_n
-    \end{pmatrix}
-    \le
-    \begin{pmatrix}
-        b_1 \\ b_2 \\ \vdots \\ b_m
-    \end{pmatrix}
-    \\
-    (x_1, x_2, \ldots, x_n)^T \ge 0
-\end{gather}
-
-\subsection{Двойственная задача}
-
-Двойственная задача для стандартной задачи максимизации:
-
 \begin{equation}
-    \min \overline z = \min b^Ty
-\end{equation}
-\begin{gather}
-    A^Ty \ge c \\
-    y \ge 0
-\end{gather}
-
-В двойственной задаче у нас наоборот \(m\) переменных и \(n\) ограничений
-\begin{gather}
-    y = (y_1, y_2, \ldots, y_m)^T \\
-    A^T =
-    \begin{pmatrix}
-        a_{11} & a_{21} & \ldots & a_{m1} \\
-        a_{12} & a_{22} & \ldots & a_{m2} \\
-        \vdots & \vdots & \ddots & \vdots \\
-        a_{1n} & a_{2n} & \ldots & a_{mn}
-    \end{pmatrix}
-\end{gather}
-
-Более раскрытая запись для того чтобы думать:
-
-\begin{gather}
-    \min \overline z = \min (b_1y_1 + b_2y_2 + \ldots + b_my_m) \\
-    \begin{pmatrix}
-        a_{11} & a_{21} & \ldots & a_{m1} \\
-        a_{12} & a_{22} & \ldots & a_{m2} \\
-        \vdots & \vdots & \ddots & \vdots \\
-        a_{1n} & a_{2n} & \ldots & a_{mn}
-    \end{pmatrix}
-    \begin{pmatrix}
-        y_1 \\ y_2 \\ \vdots \\ y_m
-    \end{pmatrix}
-    \ge
-    \begin{pmatrix}
-        c_1 \\ c_2 \\ \vdots \\ c_n
-    \end{pmatrix}
-    \\
-    (y_1, y_2, \ldots, y_m)^T \ge 0
-\end{gather}
-
-
-\subsection{Усиленная постановка задачи ЛП}
-
-Стандартную задачу максимизации можно переписать в каноническом виде таким образом:
-
-\begin{equation}
-    \begin{bmatrix}
-        1 & -c^T & 0 \\
-        0 & A & E_m
-    \end{bmatrix}
-    \begin{bmatrix}
-        z \\ x \\ s
-    \end{bmatrix}
-    =
-    \begin{bmatrix}
-        0 \\ b
-    \end{bmatrix}
-    , \guad
-    z \rightarrow \max
-\end{equation}
-
-\begin{itemize}
-    \item \(s \ge 0\) --- новые переменные, дополняющие старые таким образом, что неравенство переходит в равенство.
-    \item \(z\) --- это переменная которую необходимо максимизировать, значение нашей целевой функции.
-\end{itemize}
-
-Более раскрытая форма для понимания:
-
-\begin{equation}
-    \begin{pmatrix}
-        1 & -c_1 & -c_2 & \ldots & -c_n & 0 & 0 & \ldots & 0 \\
-        0 & a_{11} & a_{12} & \ldots & a_{1n} & 1 & 0 & \ldots & 0 \\
-        0 & a_{21} & a_{22} & \ldots & a_{2n} & 0 & 1 & \ldots & 0 \\
-        \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
-        0 & a_{m1} & a_{m2} & \ldots & a_{mn} & 0 & 0 & \ldots & 1 \\
-    \end{pmatrix}
-    \begin{pmatrix}
-        z \\ x_1 \\ x_2 \\ \vdots \\ x_n \\ s_1 \\ s_2 \\ \vdots \\ s_m
-    \end{pmatrix}
-    =
-    \begin{pmatrix}
-        0 \\ b_1 \\ b_2 \\ \vdots \\ b_m
-    \end{pmatrix}
+    \begin{gathered}
+        \max z = \max (c_1x_1 + c_2x_2 + \ldots + c_nx_n) \\
+        \begin{pmatrix}
+            a_{11} & a_{12} & \ldots & a_{1n} \\
+            a_{21} & a_{22} & \ldots & a_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{m1} & a_{m2} & \ldots & a_{mn}
+        \end{pmatrix}
+        \begin{pmatrix}
+            x_1 \\ x_2 \\ \vdots \\ x_n
+        \end{pmatrix}
+        \le
+        \begin{pmatrix}
+            b_1 \\ b_2 \\ \vdots \\ b_m
+        \end{pmatrix}
+        \\
+        (x_1, x_2, \ldots, x_n)^T \ge 0
+    \end{gathered}
 \end{equation}
 
 \section{Двойственность}
 
 Если честно, я бы дал это в самом начале, как такой разгон перед симплексом.
 То есть если мы даем теорию ЛП, то и двойственность сразу надо, а потом уже алгоритмы решения.
-Но если мы ничего доказывать отсюда не будем, то чтобы не переписывать несколько раз уравнения двойственности на доске, может быть лучше дать это здесь чтобы перед алгоритмом для двойственной задачи оно было написано и не стиралось уже.
+
+\subsection{Двойственная задача}
+
+В английском используются термины primal и dual.
+На русском будем говорить прямая и двойственная.
+
+Двойственная задача для стандартной задачи максимизации (\ref{eq:primal_max}):
+\begin{equation} \label{dual_max}
+    \begin{aligned}
+        \min \overline z & = \min b^Ty \\
+        A^Ty & \ge c \\
+        y & \ge 0
+    \end{aligned}
+\end{equation}
+
+В двойственной задаче у нас наоборот \(m\) переменных и \(n\) ограничений
+\begin{equation}
+    \begin{gathered}
+        y = (y_1, y_2, \ldots, y_m)^T \\
+        A^T =
+        \begin{pmatrix}
+            a_{11} & a_{21} & \ldots & a_{m1} \\
+            a_{12} & a_{22} & \ldots & a_{m2} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{1n} & a_{2n} & \ldots & a_{mn}
+        \end{pmatrix}
+    \end{gathered}
+\end{equation}
+
+Более раскрытая запись для того чтобы думать:
+\begin{equation}
+    \begin{gathered}
+        \min \overline z = \min (b_1y_1 + b_2y_2 + \ldots + b_my_m) \\
+        \begin{pmatrix}
+            a_{11} & a_{21} & \ldots & a_{m1} \\
+            a_{12} & a_{22} & \ldots & a_{m2} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{1n} & a_{2n} & \ldots & a_{mn}
+        \end{pmatrix}
+        \begin{pmatrix}
+            y_1 \\ y_2 \\ \vdots \\ y_m
+        \end{pmatrix}
+        \ge
+        \begin{pmatrix}
+            c_1 \\ c_2 \\ \vdots \\ c_n
+        \end{pmatrix}
+        \\
+        (y_1, y_2, \ldots, y_m)^T \ge 0
+    \end{gathered}
+\end{equation}
 
 \subsection{Теоремы двойственности}
 
-\[
-c^T x <= b^T y
+\begin{equation}
+    \begin{gathered}
+        c^T x \le b^T y \\
+        c^T x^* = b^T y^*
+    \end{gathered}
+\end{equation}
 
-c^T x* = b^T y*
-\]
+\(x*\) называется оптимальным решением, а значение целевой функции при нем называется значением задачи.
 
-\(x*\) называется оптимальным решением, а значение целевой функции при нем называется значенем задачи.
-
-Вообще говоря приведение ограничений к равенствам дает нам задачу ЛП в стандартной (канонической) форме.
-И наверное оно еще может называться усиленной постановкой задачи ЛП.
+Вообще говоря, приведение ограничений к равенствам дает нам задачу ЛП в канонической форме.
 
 \subsection{Двойственность задачи ЛП в общем, стандартном и каноническом виде}
 
 Прямая задача в общем виде:
-\begin{gather}
-    \max z = \max c^T x \\
-    a_ix \le b_i, i = \overline{1, m_1} \\
-    a_ix = b_i, i = \overline{m_1 + 1, m} \\
-    x_j \ge 0, j = \overline{1, n_1} \\
-    x_j \in R, j = \overline{n_1 + 1, n} \\
-\end{gather}
+\begin{equation}
+    \begin{gathered}
+        \max z = \max c^T x \\
+        \begin{aligned}
+            a_ix & \le b_i, \quad i = \overline{1, m_1} \\
+            a_ix & = b_i, \quad i = \overline{m_1 + 1, m} \\
+            x_j & \ge 0, \quad j = \overline{1, n_1} \\
+            x_j & \in R, \quad j = \overline{n_1 + 1, n} \\
+        \end{aligned}
+    \end{gathered}
+\end{equation}
 
 Двойственная к ней:
-\begin{gather}
+\begin{equation}
+    \begin{gathered}
     \min \overline z = \min b^T y \\
-    (a^j)^Ty \ge c_j, j = \overline{1, n_1} \\
-    (a^j)^Ty = c_j, j = \overline{n_1 + 1, n} \\
-    y_i \ge 0, i = \overline{1, m_1} \\
-    y_i \in R, i = \overline{m_1 + 1, m} \\
-\end{gather}
+        \begin{aligned}
+            (a^j)^Ty & \ge c_j, \quad j = \overline{1, n_1} \\
+            (a^j)^Ty & = c_j, \quad j = \overline{n_1 + 1, n} \\
+            y_i & \ge 0, \quad i = \overline{1, m_1} \\
+            y_i & \in R, \quad i = \overline{m_1 + 1, m} \\
+        \end{aligned}
+    \end{gathered}
+\end{equation}
 
 Частный случай прямой задачи при котором она находится в стандартном виде означает что \(m_1 = m\) и \(n_1 = n\).
 При таких значениях все ограничения являются неравенствами и у всех переменных есть ограничение на знак.
-\begin{gather}
-    \max z = \max c^T x \\
-    a_ix \le b_i, i = \overline{1, m} \\
-    x_j \ge 0, j = \overline{1, n} \\
-\end{gather}
+\begin{equation}
+    \begin{gathered}
+        \max z = \max c^T x \\
+        \begin{aligned}
+            a_ix & \le b_i, \quad i = \overline{1, m} \\
+            x_j & \ge 0, \quad j = \overline{1, n} \\
+        \end{aligned}
+    \end{gathered}
+\end{equation}
 
 Двойственная задача к этой стандартной задаче будет тоже иметь все ограничения в виде неравенств и будет иметь ограничения на знак для переменных.
-\begin{gather}
+\begin{equation}
+    \begin{gathered}
     \min \overline z = \min b^T y \\
-    (a^j)^Ty \ge c_j, j = \overline{1, n} \\
-    y_i \ge 0, i = \overline{1, m} \\
-\end{gather}
+        \begin{aligned}
+            (a^j)^Ty & \ge c_j, \quad j = \overline{1, n} \\
+            y_i & \ge 0, \quad i = \overline{1, m} \\
+        \end{aligned}
+    \end{gathered}
+\end{equation}
 
 Частный случай прямой задачи при котором она находится в каноническом виде означает что \(m_1 = 0\) и \(n_1 = n\).
 При таких значениях все ограничения являются равенствами и у всех переменных есть ограничение на знак.
-\begin{gather}
-    \max z = \max c^T x \\
-    a_ix = b_i, i = \overline{1, m} \\
-    x_j \ge 0, j = \overline{1, n} \\
-\end{gather}
+\begin{equation}
+    \begin{gathered}
+        \max z = \max c^T x \\
+        \begin{aligned}
+            a_ix & = b_i, \quad i = \overline{1, m} \\
+            x_j & \ge 0, \quad j = \overline{1, n} \\
+        \end{aligned}
+    \end{gathered}
+\end{equation}
 
 Двойственная задача к этой канонической задаче будет иметь все ограничения в виде неравенств и не будет иметь ограничений на знак для переменных.
-\begin{gather}
+\begin{equation}
+    \begin{gathered}
     \min \overline z = \min b^T y \\
-    (a^j)^Ty \ge c_j, j = \overline{1, n} \\
-    y_i \in R, i = \overline{1, m} \\
-\end{gather}
+        \begin{aligned}
+            (a^j)^Ty & \ge c_j, \quad j = \overline{1, n} \\
+            y_i & \in R, \quad i = \overline{1, m} \\
+        \end{aligned}
+    \end{gathered}
+\end{equation}
 
 \subsection{Представление двойственной задачи. Оптимальное решение двойственной задачи.}
 
@@ -352,15 +325,61 @@ c^T x* = b^T y*
 То есть в тривиальном случае первую фазу опускаем.
 Тривиальным случаем может быть когда 0 - допустимое решение
 
-\section{Базисные решения}
+\subsection{Базисные решения}
 
 Что?
 Базисное решение это решение с которого мы начинаем наши расчеты.
 
 \section{Матричное представление симплекс таблиц}
 
-Что такое вообще симплекс таблицы..
 Симплекс таблица это способ записи решения симплекс метода.
+Или просто способ решения симплекс метода.
+К тому же еще и главный, наверное.
+
+Стандартную задачу максимизации можно переписать в каноническом виде таким образом:
+
+\begin{equation}
+    \begin{bmatrix}
+        1 & -c^T & 0 \\
+        0 & A & E_m
+    \end{bmatrix}
+    \begin{bmatrix}
+        z \\ x \\ s
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0 \\ b
+    \end{bmatrix}
+    , \quad
+    z \rightarrow \max
+\end{equation}
+
+\begin{itemize}
+    \item \(s \ge 0\) --- новые переменные, дополняющие старые таким образом, что неравенство переходит в равенство.
+    \item \(z\) --- это переменная которую необходимо максимизировать, значение нашей целевой функции.
+\end{itemize}
+
+Более раскрытая форма для понимания:
+
+\setcounter{MaxMatrixCols}{20}
+\begin{equation}
+    \begin{pmatrix}
+        1 & \vline & -c_1 & -c_2 & \ldots & -c_n & \vline & 0 & 0 & \ldots & 0 \\
+        \hline
+        0 & \vline & a_{11} & a_{12} & \ldots & a_{1n} & \vline & 1 & 0 & \ldots & 0 \\
+        0 & \vline & a_{21} & a_{22} & \ldots & a_{2n} & \vline & 0 & 1 & \ldots & 0 \\
+        \vdots & \vline & \vdots & \vdots & \ddots & \vdots & \vline & \vdots & \vdots & \ddots & \vdots \\
+        0 & \vline & a_{m1} & a_{m2} & \ldots & a_{mn} & \vline & 0 & 0 & \ldots & 1 \\
+    \end{pmatrix}
+    \begin{pmatrix}
+        z \\ x_1 \\ x_2 \\ \vdots \\ x_n \\ s_1 \\ s_2 \\ \vdots \\ s_m
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0 \\ b_1 \\ b_2 \\ \vdots \\ b_m
+    \end{pmatrix}
+\end{equation}
+
 
 \section{Условия оптимальности и допустимости}
 
