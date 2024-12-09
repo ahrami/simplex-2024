@@ -1,0 +1,20 @@
+\providecommand \autonum@processReference [2]{}
+\babel@toc {russian}{}\relax 
+\contentsline {section}{Введение}{3}{section*.1}%
+\contentsline {section}{\numberline {1}Линейное программирование}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Линейный функционал}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Геометрическое представление задачи ЛП}{4}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Математическое описание задачи ЛП}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Обозначения}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Прямая задача}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Двойственная задача}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Усиленная постановка задачи ЛП}{7}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Двойственность}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Теоремы двойственности}{8}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Представление двойственной задачи. Оптимальное решение двойственной задачи.}{8}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Основы симплекс метода}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Принцип симплекс метода}{9}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Базисные решения}{10}{section.5}%
+\contentsline {section}{\numberline {6}Матричное представление симплекс таблиц}{10}{section.6}%
+\contentsline {section}{\numberline {7}Условия оптимальности и допустимости}{10}{section.7}%
+\contentsline {section}{\numberline {8}Алгоритм решения с ограниченными переменными}{10}{section.8}%
