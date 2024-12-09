@@ -11,11 +11,11 @@
 \contentsline {subsection}{\numberline {2.4}Усиленная постановка задачи ЛП}{7}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Двойственность}{8}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Теоремы двойственности}{8}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Двойственность задачи ЛП в общем виде}{8}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Представление двойственной задачи. Оптимальное решение двойственной задачи.}{9}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Основы симплекс метода}{9}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Принцип симплекс метода}{10}{subsection.4.1}%
-\contentsline {section}{\numberline {5}Базисные решения}{10}{section.5}%
-\contentsline {section}{\numberline {6}Матричное представление симплекс таблиц}{10}{section.6}%
-\contentsline {section}{\numberline {7}Условия оптимальности и допустимости}{11}{section.7}%
-\contentsline {section}{\numberline {8}Алгоритм решения с ограниченными переменными}{11}{section.8}%
+\contentsline {subsection}{\numberline {3.2}Двойственность задачи ЛП в общем, стандартном и каноническом виде}{8}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Представление двойственной задачи. Оптимальное решение двойственной задачи.}{10}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Основы симплекс метода}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Принцип симплекс метода}{11}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Базисные решения}{12}{section.5}%
+\contentsline {section}{\numberline {6}Матричное представление симплекс таблиц}{12}{section.6}%
+\contentsline {section}{\numberline {7}Условия оптимальности и допустимости}{12}{section.7}%
+\contentsline {section}{\numberline {8}Алгоритм решения с ограниченными переменными}{12}{section.8}%
