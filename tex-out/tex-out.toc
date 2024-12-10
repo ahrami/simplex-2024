@@ -12,7 +12,8 @@
 \contentsline {subsection}{\numberline {2.4}Представление двойственной задачи. Оптимальное решение двойственной задачи.}{8}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Основы симплекс метода}{9}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Принцип симплекс метода}{9}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Базисные решения}{10}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Матричное представление симплекс таблиц}{10}{section.4}%
-\contentsline {section}{\numberline {5}Условия оптимальности и допустимости}{11}{section.5}%
-\contentsline {section}{\numberline {6}Алгоритм решения с ограниченными переменными}{11}{section.6}%
+\contentsline {subsection}{\numberline {3.2}Симплекс таблицы}{10}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Базисные решения}{10}{section.4}%
+\contentsline {section}{\numberline {5}Матричное представление симплекс таблиц}{12}{section.5}%
+\contentsline {section}{\numberline {6}Условия оптимальности и допустимости}{13}{section.6}%
+\contentsline {section}{\numberline {7}Алгоритм решения с ограниченными переменными}{13}{section.7}%
