@@ -6,14 +6,22 @@
 \contentsline {subsection}{\numberline {1.3}Обозначения для математического представления}{4}{subsection.1.3}%
 \contentsline {subsection}{\numberline {1.4}Математическое описание задачи ЛП}{5}{subsection.1.4}%
 \contentsline {section}{\numberline {2}Двойственность}{5}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Двойственная задача}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.1}Двойственная задача для стандартной задачи максимизации}{6}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Теоремы двойственности}{6}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Двойственность задачи ЛП в общем, стандартном и каноническом виде}{7}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Представление двойственной задачи. Оптимальное решение двойственной задачи.}{8}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Основы симплекс метода}{9}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Принцип симплекс метода}{9}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Симплекс таблицы}{10}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Базисные решения}{10}{section.4}%
+\contentsline {subsection}{\numberline {3.3}Допустимость}{10}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Симплекс алгоритм}{10}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Базисные решения}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Определения}{11}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Объяснение}{11}{subsection.4.2}%
 \contentsline {section}{\numberline {5}Матричное представление симплекс таблиц}{12}{section.5}%
-\contentsline {section}{\numberline {6}Условия оптимальности и допустимости}{13}{section.6}%
-\contentsline {section}{\numberline {7}Алгоритм решения с ограниченными переменными}{13}{section.7}%
+\contentsline {subsection}{\numberline {5.1}Исходная таблица}{13}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Таблица с другим базисом}{14}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Базисные переменные}{14}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Таблица в развернутом виде}{15}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Условия оптимальности и допустимости}{16}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Алгоритм решения с ограниченными переменными}{16}{section.6}%
