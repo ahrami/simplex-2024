@@ -739,6 +739,8 @@ n = \frac c {|c|}
 Если отрицательные элементы есть то ищем среди них минимальный и соответствующая переменная \(x_i\) из небазисных будет вводимой:
 \begin{equation} \label{eq:matrix_form_optimality}
     \min_i (c_B^TB^{-1} a^i-c_i)
+    , \quad
+    c_B^TB^{-1} a^i-c_i < 0
 \end{equation}
 
 % Эта таблица прямо-допустима когда в правой части нет отрицательных элементов не считая первого.
@@ -747,9 +749,74 @@ n = \frac c {|c|}
 Если \(x_i\) это вводимая переменная, то исключаемой будет \(x_j\) та у которой
 \begin{equation} \label{eq:matrix_form_feasibility}
     \min_j \frac{\hat b_jb}{\hat b_ja^i}
+    , \quad
+    \hat b_ja^i > 0
 \end{equation}
 
 Для переменных \(s\) эти выражения аналогично составляются.
+
+Пусть все переменные
+\(
+    \begin{bmatrix}
+        x \\ s
+    \end{bmatrix}
+\)
+делятся на базисные \(x_B\) и небазисные \(x_N\).
+Весь вектор переменных
+\(
+    x' = 
+    \begin{bmatrix}
+        x_B \\ x_N
+    \end{bmatrix}
+\).
+Пусть также \(
+A' = 
+    \begin{bmatrix}
+        B & \vline & N
+    \end{bmatrix}
+\).
+Весь вектор коэффициентов ЦФ
+\(
+    \begin{bmatrix}
+        c \\ 0
+    \end{bmatrix}
+\)
+делится на \(c_B\) и \(c_N\)?, и
+\(
+    c' = 
+    \begin{bmatrix}
+        c_B \\ c_N
+    \end{bmatrix}
+\)
+
+Тогда таблица (\ref{eq:matrix_form_1_phaze_basis}) перепишется таким образом:
+\begin{equation}
+    \begin{bmatrix}
+        1 & c_B^TB^{-1}A'-c'^T \\
+        0 & B^{-1}A'
+    \end{bmatrix}
+    \begin{bmatrix}
+        z \\ x_B \\ x_N
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        c_B^TB^{-1}b \\ B^{-1}b
+    \end{bmatrix}
+\end{equation}
+
+А условия оптимальности и допустимости станут такими:
+
+\begin{equation}
+    \min_i (c'^TB^{-1} A'^i-c'_i)
+    , \quad
+    c'^TB^{-1} A'^i-c'_i < 0
+\end{equation}
+
+\begin{equation}
+    \min_j \frac{\hat b_jb}{\hat b_ja'^i}
+    , \quad
+    \hat b_ja'^i > 0
+\end{equation}
 
 \subsection{Модифицированный симплекс метод}
 
