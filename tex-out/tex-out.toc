@@ -13,7 +13,7 @@
 \contentsline {subsection}{\numberline {3.1}Базисное решение СЛАУ}{11}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Неравенства}{11}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Определения}{12}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Геометрическая интерпертация слабых переменных}{12}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.4}Геометрическая интерпретация слабых переменных}{12}{subsection.3.4}%
 \contentsline {section}{\numberline {4}Основы симплекс метода}{14}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Принцип симплекс метода}{14}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Симплекс таблицы}{15}{subsection.4.2}%
